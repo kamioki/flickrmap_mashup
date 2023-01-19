@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        block head
+        block links
+    body 
+        #container
+            block content
+            h1 BirdMap
+                span Explore bird photos from the world
+            block search
+            .row.content
+                #infobar
+                    #message
+                        h4 Quick Start Guide
+                        p 1. Enter keyword(s) and/or a Flickr username and click "Search Photos".
+                        p 2. Your search will appear on the map below. Mouseover a pin to preview a photo.
+                        p 3. Click the pin to see the detailed information here and jump to the original Flickr page.
+                    #selectedimg
+
+                block map
+                #map
+            block footer

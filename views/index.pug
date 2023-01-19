@@ -1,0 +1,30 @@
+extends layout
+
+block head
+  meta(charset='utf-8')  
+  <title>BirdMap</title>
+
+block links
+  link(rel='stylesheet', href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous")
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
+  script.
+      let photos = !{JSON.stringify(photos)};
+      const lat = !{JSON.stringify(lat)};
+      const lng = !{JSON.stringify(lng)};
+
+  script(src="/javascripts/map.js") 
+  script(async="", defer="", src='https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY&callback=initMap')
+
+block content
+  p.counter view counter: #{num}
+  img(src='/images/logo.png' class='logo')
+
+block search
+  #search.row
+      form(method='get' id='searchform')
+          input(type='text' id='searchbar' name='tags' placeholder='enter keywords here')
+          input(type='text' id='usernamebar' name='username' placeholder='enter username here'  form='searchform')
+          input(type='submit' value='Search Photos'  id='searchbutton')
+
+block footer
